@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="aVoicePushAzure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-01.2.3">
+  <WorkerRole name="EmailPusherWorkerRole" vmsize="ExtraSmall">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="DomainName" />
+      <Setting name="SqlConnectionString" />
+      <Setting name="ClientId" />
+      <Setting name="ClientSecret" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="SmtpIn" protocol="tcp" port="25" />
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>

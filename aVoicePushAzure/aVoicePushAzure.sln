@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "aVoicePushAzure", "aVoicePushAzure\aVoicePushAzure.ccproj", "{FF1BEC3B-B69A-4637-AF96-E48668BAB6DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailPusherWorkerRole", "EmailPusherWorkerRole\EmailPusherWorkerRole.csproj", "{8A808C19-84D7-4057-9AD9-4BCAFBED526E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleVoiceEmailHandler", "GoogleVoiceEmailHandler\GoogleVoiceEmailHandler.csproj", "{63820399-6DA4-4683-9210-51A955396A52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF1BEC3B-B69A-4637-AF96-E48668BAB6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF1BEC3B-B69A-4637-AF96-E48668BAB6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF1BEC3B-B69A-4637-AF96-E48668BAB6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF1BEC3B-B69A-4637-AF96-E48668BAB6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A808C19-84D7-4057-9AD9-4BCAFBED526E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A808C19-84D7-4057-9AD9-4BCAFBED526E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A808C19-84D7-4057-9AD9-4BCAFBED526E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A808C19-84D7-4057-9AD9-4BCAFBED526E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63820399-6DA4-4683-9210-51A955396A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63820399-6DA4-4683-9210-51A955396A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63820399-6DA4-4683-9210-51A955396A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63820399-6DA4-4683-9210-51A955396A52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
