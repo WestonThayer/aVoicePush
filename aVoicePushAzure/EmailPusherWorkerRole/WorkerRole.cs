@@ -9,6 +9,7 @@ using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage;
 using System.Collections.ObjectModel;
+using Services;
 
 namespace EmailPusher
 {
@@ -32,16 +33,18 @@ namespace EmailPusher
 
         public override void Run()
         {
-            Tr.Information("Run() entry");
+            ServiceLocator.Current.Log.Information("Run() entry");
 
             smtpHandler.Run();
 
-            Tr.Warning("Run() exit for unknown reason!");
+            ServiceLocator.Current.Log.Warning("Run() exit for unknown reason!");
         }
 
         public override bool OnStart()
         {
-            Tr.Information("OnStart() entry. Processor count is: " + Environment.ProcessorCount);
+            ServiceLocator.Current.Log = new Tr();
+
+            ServiceLocator.Current.Log.Information("OnStart() entry. Processor count is: " + Environment.ProcessorCount);
 
             // Set the maximum number of concurrent connections 
             ServicePointManager.DefaultConnectionLimit = Environment.ProcessorCount;
@@ -60,7 +63,7 @@ namespace EmailPusher
 
         public override void OnStop()
         {
-            Tr.Information("OnStop() entry");
+            ServiceLocator.Current.Log.Information("OnStop() entry");
 
             base.OnStop();
         }
@@ -77,9 +80,9 @@ namespace EmailPusher
             e.Cancel = HasNonExemptConfigurationChanges(e.Changes);
 
             if (!e.Cancel)
-                Tr.Information("WorkerRole::RoleEnvironmentChanging - role is not recycling.");
+                ServiceLocator.Current.Log.Information("WorkerRole::RoleEnvironmentChanging - role is not recycling.");
             else
-                Tr.Information("WorkerRole::RoleEnvironmentChanging - recycling role instance.");
+                ServiceLocator.Current.Log.Information("WorkerRole::RoleEnvironmentChanging - recycling role instance.");
         }
 
         /// <summary>

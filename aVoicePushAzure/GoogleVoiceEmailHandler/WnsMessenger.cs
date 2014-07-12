@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoogleVoiceEmailHandler
 {
-    class WnsMessenger
+    public class WnsMessenger
     {
         private string clientId;
         private string clientSecret;

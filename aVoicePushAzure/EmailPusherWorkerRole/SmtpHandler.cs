@@ -1,6 +1,7 @@
 ﻿using EricDaugherty.CSES.Common;
 using EricDaugherty.CSES.SmtpServer;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace EmailPusher
         /// </summary>
         public SmtpHandler()
         {
-            Tr.Information("SmtpHandler ctor, Port is: {0}. Domain is {1}.",
+            ServiceLocator.Current.Log.Information("SmtpHandler ctor, Port is: {0}. Domain is {1}.",
                 RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["SmtpIn"].IPEndpoint.ToString(),
                 RoleEnvironment.GetConfigurationSettingValue("DomainName"));
 
@@ -42,26 +43,26 @@ namespace EmailPusher
                 new MessageSpool()
                 );
 
-            Tr.Information("SmtpHandler ctor, exiting");
+            ServiceLocator.Current.Log.Information("SmtpHandler ctor, exiting");
         }
 
         public void Run()
         {
-            Tr.Information("SmtpHandler Run() entry, starting to listen");
+            ServiceLocator.Current.Log.Information("SmtpHandler Run() entry, starting to listen");
             listener.Start();
 
             while (true)
             {
                 Socket soc = listener.AcceptSocket();
-                Tr.Information("Socket accepted, about to process connection");
+                ServiceLocator.Current.Log.Information("Socket accepted, about to process connection");
 
                 Task.Run(() =>
                 {
                     processor.ProcessConnection(soc);
-                    Tr.Information("Socket processing finished");
+                    ServiceLocator.Current.Log.Information("Socket processing finished");
                 });
 
-                Tr.Information("Thread spawned, accepting next socket");
+                ServiceLocator.Current.Log.Information("Thread spawned, accepting next socket");
             }
         }
     }
@@ -74,7 +75,7 @@ namespace EmailPusher
 
         public bool SpoolMessage(SMTPMessage message)
         {
-            Tr.Information("Email encountered");
+            ServiceLocator.Current.Log.Information("Email encountered");
 
             try
             {
@@ -95,7 +96,7 @@ namespace EmailPusher
             catch (Exception e)
             {
                 // We can survive an Exception, since it only breaks this message's processing. Continue to strive for others.
-                Tr.Warning("Exception in MessageSpool! " + e.Message);
+                ServiceLocator.Current.Log.Warning("Exception in MessageSpool! " + e.Message);
             }
 
             return true;
@@ -108,7 +109,7 @@ namespace EmailPusher
         {
             bool match = recipient.Username.ToLower() == "text";
 
-            Tr.WarningIf(!match, "Received mail not to text@avoice.cloudapp.net. Instead, " + recipient.ToString());
+            ServiceLocator.Current.Log.WarningIf(!match, "Received mail not to text@avoice.cloudapp.net. Instead, " + recipient.ToString());
 
             return match;
         }

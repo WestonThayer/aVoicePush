@@ -89,6 +89,10 @@
       <Project>{63820399-6da4-4683-9210-51a955396a52}</Project>
       <Name>GoogleVoiceEmailHandler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{711762ca-456b-4406-b1fd-b8a05e2c48d2}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
