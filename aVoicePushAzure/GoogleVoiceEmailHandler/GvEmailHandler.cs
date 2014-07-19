@@ -20,19 +20,70 @@ namespace GoogleVoiceEmailHandler
             {
                 ServiceLocator.Current.Log.Information("IsGoogleVoiceEmail == true");
 
+                // Extract the message
                 Message message = GvEmailParser.ParseMessage(email);
+
+                // Send it to all of the recipient's push endpoints
+                SendMessage(message);
             }
             else if (IsEmailForwardPermissionMail(email.Header.From, email.Header.Subject))
             {
                 ServiceLocator.Current.Log.Information("IsEmailForwardPermissionMail == true");
 
                 string link = GvEmailParser.ParsePermission(email);
+                string userEmail = GvEmailParser.ParsePermissionForUserEmail(email);
+                bool clicked = ServiceLocator.Current.LinkClicker.Click(link);
 
-                sdf
+                if (clicked && userEmail != null)
+                {
+                    ServiceLocator.Current.Log.Information("Email forward request successful.");
+
+                    // Notify the user of success
+                    Message message = new Message()
+                    {
+                        Body = "Awesome! aVoice Push has been configured correctly",
+                        Number = "avoice",
+                        Sender = "aVoice Push",
+                        ThreadId = null,
+                        Type = null,
+                        UserEmail = userEmail
+                    };
+
+                    SendMessage(message);
+                }
+                else if (userEmail != null)
+                {
+                    ServiceLocator.Current.Log.Error("Failed to accept forward request. link: {0}. userEmail: {1}. clicked: {2}", link, userEmail, clicked ? "true" : "false");
+
+                    // Ugh, we failed
+                    Message message = new Message()
+                    {
+                        Body = "Uhoh, something broke.",
+                        Number = "avoice",
+                        Sender = "aVoice Push",
+                        ThreadId = null,
+                        Type = null,
+                        UserEmail = userEmail
+                    };
+
+                    SendMessage(message);
+                }
             }
             else
             {
-                ServiceLocator.Current.Log.Error("We've received an email that we don't have logic to handle.");
+                ServiceLocator.Current.Log.Warning("We've received an email that we don't have logic to handle. From: " + email.Header.From);
+            }
+        }
+
+        /// <summary>
+        /// Distribute the given message to all of the recipient's push endpoints.
+        /// </summary>
+        /// <param name="message"></param>
+        private void SendMessage(Message message)
+        {
+            foreach (IItem item in ServiceLocator.Current.Item.Query(message.UserEmail))
+            {
+                WnsMessenger.NotifyUser(message, item, "bad", "bad");
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using anmar.SharpMimeTools;
-using Services;
+﻿using Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -287,6 +286,28 @@ namespace GoogleVoiceEmailHandler
             else
             {
                 throw new ArgumentException("Can't find a link to click! (regex fail): " + PurgePersonalString(email.RawBody));
+            }
+        }
+
+        /// <summary>
+        /// Given an email forwarding permission mail, find the email of the user who
+        /// requested it.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>The email, or null if not found</returns>
+        public static string ParsePermissionForUserEmail(IEmail email)
+        {
+            Regex r = new Regex(@"(.+@.+) has requested to automatically forward");
+
+            if (r.IsMatch(email.RawBody))
+            {
+                var m = r.Match(email.RawBody);
+                return m.Groups[1].Value;
+            }
+            else
+            {
+                ServiceLocator.Current.Log.Error("Regex match fail in ParsePermissionForUserEmail. Body: " + PurgePersonalString(email.RawBody));
+                return null;
             }
         }
     }

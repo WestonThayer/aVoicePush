@@ -28,5 +28,11 @@ namespace Services
         #endregion
 
         public ILog Log { get; set; }
+
+        public ILinkClicker LinkClicker { get; set; }
+
+        public IItem Item { get; set; }
+
+        public IPushSender PushSender { get; set; }
     }
 }

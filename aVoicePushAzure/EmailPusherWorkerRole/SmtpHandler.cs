@@ -1,5 +1,6 @@
 ﻿using EricDaugherty.CSES.Common;
 using EricDaugherty.CSES.SmtpServer;
+using GoogleVoiceEmailHandler;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Services;
 using System;
@@ -79,24 +80,14 @@ namespace EmailPusher
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(RoleEnvironment.GetConfigurationSettingValue("SqlConnectionString")))
-                {
-                    conn.Open();
-
-                    WnsMessenger messenger = new WnsMessenger(
-                        conn,
-                        RoleEnvironment.GetConfigurationSettingValue("ClientId"),
-                        RoleEnvironment.GetConfigurationSettingValue("ClientSecret")
-                        );
-
-                    GvEmailHandler handler = new GvEmailHandler();
-                    handler.ProcessEmail(message, messenger);
-                }
+                GvEmailHandler handler = new GvEmailHandler();
+                SmtpEmail email = new SmtpEmail(message);
+                handler.HandleEmail(email);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // We can survive an Exception, since it only breaks this message's processing. Continue to strive for others.
-                ServiceLocator.Current.Log.Warning("Exception in MessageSpool! " + e.Message);
+                ServiceLocator.Current.Log.Warning("Exception in MessageSpool! " + ex.Message);
             }
 
             return true;

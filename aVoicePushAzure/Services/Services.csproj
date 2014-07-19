@@ -39,7 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEmail.cs" />
+    <Compile Include="IEmailHeader.cs" />
+    <Compile Include="IItem.cs" />
+    <Compile Include="ILinkClicker.cs" />
     <Compile Include="ILog.cs" />
+    <Compile Include="IPushSender.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
