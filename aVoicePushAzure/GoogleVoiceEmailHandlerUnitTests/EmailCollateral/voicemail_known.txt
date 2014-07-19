@@ -1,0 +1,88 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: obfuscated@gmail.com
+Received: by 10.96.140.65 with SMTP id re1csp19096qdb;
+        Sat, 12 Jul 2014 17:56:14 -0700 (PDT)
+Return-Path: <3LdnBUw0KCIo92wqs-125s3zCu22uzs.q201vw6rovzu0owz.q20@grandcentral.bounces.google.com>
+Received-SPF: pass (google.com: domain of 3LdnBUw0KCIo92wqs-125s3zCu22uzs.q201vw6rovzu0owz.q20@grandcentral.bounces.google.com designates 10.236.216.5 as permitted sender) client-ip=10.236.216.5
+Authentication-Results: mr.google.com;
+       spf=pass (google.com: domain of 3LdnBUw0KCIo92wqs-125s3zCu22uzs.q201vw6rovzu0owz.q20@grandcentral.bounces.google.com designates 10.236.216.5 as permitted sender) smtp.mail=3LdnBUw0KCIo92wqs-125s3zCu22uzs.q201vw6rovzu0owz.q20@grandcentral.bounces.google.com;
+       dkim=pass header.i=@google.com
+X-Received: from mr.google.com ([10.236.216.5])
+        by 10.236.216.5 with SMTP id f5mr4760218yhp.10.1405212973999 (num_hops = 1);
+        Sat, 12 Jul 2014 17:56:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:message-id:date:subject:from:to:content-type;
+        bh=K/i7K7xJKF97jcxiV4bV+dMtNA0vrJ+2HClhA8M6dkE=;
+        b=f5uUWav8rdg87RZu2LuH2EsmJ/kzZNYNooFO51cq0nC7AvVIh+vi5T2qwCICISP7Sl
+         3uKyIMThpkXXBxcd2G/oTDxmLdlaBwGWR+MhQQjiKeP3eGQrC5xQDNUKrkw8YjhvwVen
+         y75fQGzfU2JzUuUfl3cm+FwGt3sUhopI0hX785n5LOpQGC/zWpPzMDpaPZYSKCohxNPW
+         s9YuKF++wbmLI+JeLL6PwVlA4fiG0fXEbDIIlptbZMcoZAO6HMhpRSHZvnj/+/lO+DGL
+         rhsJ3ezaitbOw/32vETMZ7TYMIT7TL1TAnRd6dbkArweoZH6vDmb5whD0Weg7XHG5XSE
+         KiAQ==
+MIME-Version: 1.0
+X-Received: by 10.236.216.5 with SMTP id f5mr3372122yhp.10.1405212973961; Sat,
+ 12 Jul 2014 17:56:13 -0700 (PDT)
+Message-ID: <001a1132e72e25928304fe08a41d@google.com>
+Date: Sun, 13 Jul 2014 00:56:13 +0000
+Subject: New voicemail from FirstN LastN at 5:54 PM
+From: Google Voice <voice-noreply@google.com>
+To: obfuscated@gmail.com
+Content-Type: multipart/alternative; boundary=001a1132e72e25926604fe08a41a
+
+--001a1132e72e25926604fe08a41a
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed; delsp=yes
+
+Voicemail from: FirstN LastN (222) 333-4444 at 5:54 PM
+
+Transcript: Thank you again. I just want to tell you that we got the books  
+today and thank you so much. And the third really really cool to bring.  
+Some of them only. Com. Anyways, hope you guys are having a good weekend.  
+Just gimme a call tomorrow. Okay bye.
+
+Play message:  
+https://www.google.com/voice/fm/05199788058800817243/AHwOX_Drlk-KFIidGgow2-ugnKuhmvOglGcSrPUPCz4vadUHnUe14e-kpb0s6W1SPlNEPwPNHWD9acxZyTB9SvX-0vy8BHy74QRVZoPWyo56KhVjSk7jumigcRKv0XVRUxdsFZ172aZCQT8qjrVx46vZi3CItbRfXg
+
+
+--001a1132e72e25926604fe08a41a
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+<html><table cellpadding=3D"2" border=3D"0" width=3D"620" style=3D"border-c=
+ollapse:collapse;"><tr><td valign=3D"bottom"><div style=3D"font-size: 120%;=
+ padding-left: 4px;">Voicemail from: <b>FirstN LastN</b> (222) 333-4444 =
+at 5:54 PM</div></td><td align=3D"right"><a href=3D"https://www.google.com/=
+voice/"><img src=3D"https://www.google.com/voice/static/voice_logo_sm2.png"=
+ title=3D"Google Voice" border=3D"0"/></a></td></tr><tr><td colspan=3D"2"><=
+div style=3D"border: #c0cde5 solid 1px; background-color: #e8eef7; padding:=
+ 10px; line-height: 140%"><span style=3D"color:#555">Thank </span><span sty=
+le=3D"color:#555">you </span><span style=3D"color:#555">again. </span><span=
+ style=3D"color:#000">I </span><span style=3D"color:#000">just </span><span=
+ style=3D"color:#888">want </span><span style=3D"color:#888">to </span><spa=
+n style=3D"color:#000">tell </span><span style=3D"color:#000">you </span><s=
+pan style=3D"color:#000">that </span><span style=3D"color:#000">we </span><=
+span style=3D"color:#000">got </span><span style=3D"color:#888">the </span>=
+<span style=3D"color:#555">books </span><span style=3D"color:#888">today </=
+span><span style=3D"color:#000">and </span><span style=3D"color:#000">thank=
+ </span><span style=3D"color:#000">you </span><span style=3D"color:#000">so=
+ </span><span style=3D"color:#000">much. </span><span style=3D"color:#000">=
+And </span><span style=3D"color:#888">the </span><span style=3D"color:#888"=
+>third </span><span style=3D"color:#000">really </span><span style=3D"color=
+:#000">really </span><span style=3D"color:#000">cool </span><span style=3D"=
+color:#888">to </span><span style=3D"color:#000">bring. </span><span style=
+=3D"color:#000">Some </span><span style=3D"color:#000">of </span><span styl=
+e=3D"color:#000">them </span><span style=3D"color:#555">only. </span><span =
+style=3D"color:#555">Com. </span><span style=3D"color:#555">Anyways, </span=
+><span style=3D"color:#888">hope </span><span style=3D"color:#888">you </sp=
+an><span style=3D"color:#888">guys </span><span style=3D"color:#888">are </=
+span><span style=3D"color:#000">having </span><span style=3D"color:#000">a =
+</span><span style=3D"color:#000">good </span><span style=3D"color:#000">we=
+ekend. </span><span style=3D"color:#555">Just </span><span style=3D"color:#=
+555">gimme </span><span style=3D"color:#555">a </span><span style=3D"color:=
+#000">call </span><span style=3D"color:#000">tomorrow. </span><span style=
+=3D"color:#000">Okay </span><span style=3D"color:#000">bye. </span><br/><a =
+href=3D"https://www.google.com/voice/fm/05199788058800817243/AHwOX_Drlk-KFI=
+idGgow2-ugnKuhmvOglGcSrPUPCz4vadUHnUe14e-kpb0s6W1SPlNEPwPNHWD9acxZyTB9SvX-0=
+vy8BHy74QRVZoPWyo56KhVjSk7jumigcRKv0XVRUxdsFZ172aZCQT8qjrVx46vZi3CItbRfXg">=
+Play message</a></div></td></tr></table></html>
+--001a1132e72e25926604fe08a41a--

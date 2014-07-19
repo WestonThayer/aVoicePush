@@ -84,7 +84,7 @@ namespace GoogleVoiceEmailHandler
             }
 
             Regex missedCall = new Regex(@"Missed call from:.+");
-            Regex voicemail = new Regex(@"Voicemail from:.+");
+            Regex voicemail = new Regex(@"Voicemail from: .+ at .+Transcript: (.+)Play message:", RegexOptions.Singleline);
 
             if (missedCall.IsMatch(body))
             {
@@ -96,7 +96,8 @@ namespace GoogleVoiceEmailHandler
             else if (voicemail.IsMatch(body))
             {
                 var m = voicemail.Match(body);
-                body = m.Groups[0].Value;
+                body = m.Groups[1].Value;
+                body = body.Replace("  \r\n", " "); // trim out the weird new lines
             }
 
             // Always trim off any trailing new lines surrounding the message
@@ -120,8 +121,8 @@ namespace GoogleVoiceEmailHandler
             //
             // In this last case, the vital information is in the body of the message, which can look like this:
             //
-            // Missed call from unknown contact: Missed call from: <b></b> (410) 849-9138 at 12:06 PM
-            // Missed call from known contact: Missed call from: <b>Cryclops Tester</b> (410) 849-9138 at 12:20 PM
+            // Missed call from unknown contact: Missed call from:  (410) 849-9138 at 12:06 PM
+            // Missed call from known contact: Missed call from: Cryclops Tester (410) 849-9138 at 12:20 PM
             //
             // Voicemail from unknown contact:
             // Voicemail from known contact: 
@@ -130,28 +131,35 @@ namespace GoogleVoiceEmailHandler
 
             if (sender == @"Google Voice <voice-noreply@google.com>")
             {
-                Regex missedCallOrVoicemailRegex = new Regex(@"(.+) from: <b>(.*)</b> (.+) at");
+                Regex subjectRegex = new Regex(@".+ from (.+) at");
 
-                // It's probably a missed call or voicemail
-                if (missedCallOrVoicemailRegex.IsMatch(email.RawBody))
+                if (subjectRegex.IsMatch(email.Header.Subject))
                 {
-                    var m = missedCallOrVoicemailRegex.Match(email.RawBody);
-                    type = m.Groups[1].Value;
-                    string name = m.Groups[2].Value;
-                    number = ParseNumber(m.Groups[3].Value);
+                    var m = subjectRegex.Match(email.Header.Subject);
+                    sender = m.Groups[1].Value;
 
-                    if (!string.IsNullOrWhiteSpace(name))
-                    {
-                        // Set their contact name
-                        sender = name;
-                    }
-                    else
-                    {
-                        // No contact name, just address them by their raw number
-                        sender = m.Groups[3].Value;
-                    }
+                    Regex typeRegex = new Regex(@"(.+) from: .+ at");
 
-                    return;
+                    // It's probably a missed call or voicemail
+                    if (typeRegex.IsMatch(email.RawBody))
+                    {
+                        m = typeRegex.Match(email.RawBody);
+                        type = m.Groups[1].Value;
+
+                        Regex numberRegex = new Regex(@".+ from: " + Regex.Escape(sender) + " (.+) at");
+
+                        if (numberRegex.IsMatch(email.RawBody))
+                        {
+                            m = numberRegex.Match(email.RawBody);
+                            number = ParseNumber(m.Groups[1].Value);
+                        }
+                        else
+                        {
+                            number = ParseNumber(sender);
+                        }
+
+                        return;
+                    }
                 }
             }
             else
@@ -227,7 +235,11 @@ namespace GoogleVoiceEmailHandler
                 if (digitCount == 10 || digitCount == 11)
                 {
                     string number = new String(dirtyNumber.Where(c => Char.IsDigit(c)).ToArray());
-                    return "+" + number;
+
+                    if (digitCount == 11)
+                        return "+" + number;
+                    else if (digitCount == 10)
+                        return "+1" + number;
                 }
             }
 

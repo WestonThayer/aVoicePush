@@ -1,0 +1,36 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: obfuscated@gmail.com
+Received: by 10.96.140.65 with SMTP id re1csp110887qdb;
+        Fri, 18 Jul 2014 09:56:28 -0700 (PDT)
+Return-Path: <3vFHJUx0UACkgjjimihfkmm.hlholl.0u5ha06BB6YcY.aTNHJ.LTTLQJ.HTR@grandcentral.bounces.google.com>
+Received-SPF: pass (google.com: domain of 3vFHJUx0UACkgjjimihfkmm.hlholl.0u5ha06BB6YcY.aTNHJ.LTTLQJ.HTR@grandcentral.bounces.google.com designates 10.236.117.141 as permitted sender) client-ip=10.236.117.141
+Authentication-Results: mr.google.com;
+       spf=pass (google.com: domain of 3vFHJUx0UACkgjjimihfkmm.hlholl.0u5ha06BB6YcY.aTNHJ.LTTLQJ.HTR@grandcentral.bounces.google.com designates 10.236.117.141 as permitted sender) smtp.mail=3vFHJUx0UACkgjjimihfkmm.hlholl.0u5ha06BB6YcY.aTNHJ.LTTLQJ.HTR@grandcentral.bounces.google.com;
+       dkim=pass header.i=@google.com
+X-Received: from mr.google.com ([10.236.117.141])
+        by 10.236.117.141 with SMTP id j13mr3780595yhh.3.1405702588197 (num_hops = 1);
+        Fri, 18 Jul 2014 09:56:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:references:message-id:date:subject:from:to
+         :content-type;
+        bh=t6j9ZTFumkCzNQ9Oec4x9OcgONfD4zfHUvrgxzhJczE=;
+        b=GRe4AJOAfgKy29jLQJN/I5uw521dFepJswopvB7DCcc/6T+USaAtQpEuYfqpMCk288
+         IMcMWr8YFPDtlXJH4GrBEU8MHS3jQGCalPyPMM6yQlvFPuH4edqMygCwqNQHoAtZ4eud
+         jw4XS13guXfjUNVAxHgxEmJYCX6Jh3VeEaTG+IAH5MYLkuJdaezdtH5996lBpRemn1QI
+         BOSkjK7t8z+YBBIKuUUsyXeqccqFG3YN/I+3ijPf+0TA3l7BPq5hvIqq0p2fRGx23tmg
+         hgTB+xtOmoYzcBpgveclSx5+C7gHMcnlde6JQDuHl9f6m35UKhYZ7y7y1hZRElf2kPVc
+         /xRg==
+MIME-Version: 1.0
+X-Received: by 10.236.117.141 with SMTP id j13mr2521200yhh.3.1405702588141;
+ Fri, 18 Jul 2014 09:56:28 -0700 (PDT)
+References: <+12345678888.19b059c4d5af854b6f57fce6ae20222d68133415@txt.voice.google.com>
+Message-ID: <+12345678888.8821940a353f5dd7324ec59bdaba8b03cb3fa605@txt.voice.google.com>
+Date: Fri, 18 Jul 2014 16:56:28 +0000
+Subject: SMS from 262966
+From: 262966 <12345678888.262966.LFQ2vLRWWR@txt.voice.google.com>
+To: obfuscated@gmail.com
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed; delsp=yes
+
+Amazon.com: Your package with Long Rocker Wig - Mixed Blonde is on a  
+carrier vehicle and should be delivered today.
