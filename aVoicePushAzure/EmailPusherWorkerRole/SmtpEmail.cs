@@ -22,7 +22,7 @@ namespace EmailPusher
         {
             get
             {
-                throw new NotImplementedException();
+                return header;
             }
         }
 

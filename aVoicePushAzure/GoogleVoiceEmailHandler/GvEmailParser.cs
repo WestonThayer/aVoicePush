@@ -163,16 +163,16 @@ namespace GoogleVoiceEmailHandler
                 if (r1.IsMatch(sender))
                 {
                     var m = r1.Match(sender);
-                    sender = m.Groups[1].Value;
                     number = ParseNumber(sender);
+                    sender = m.Groups[1].Value;
 
                     return;
                 }
                 else if (r2.IsMatch(sender))
                 {
                     var m = r2.Match(sender);
-                    sender = m.Groups[1].Value;
                     number = ParseNumber(sender);
+                    sender = m.Groups[1].Value;
 
                     return;
                 }

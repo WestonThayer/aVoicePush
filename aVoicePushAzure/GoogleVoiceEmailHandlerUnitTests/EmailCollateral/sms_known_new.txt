@@ -1,0 +1,38 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: obfuscated@gmail.com
+Received: by 10.96.140.65 with SMTP id re1csp119420qdb;
+        Fri, 18 Jul 2014 12:18:46 -0700 (PDT)
+Return-Path: <3FXPJUyIUAMQBEEDHDCAFHH.BEBAIEJJDHF.0bDCxrx9w2373.5ysmo.qyyqvo.myw@grandcentral.bounces.google.com>
+Received-SPF: pass (google.com: domain of 3FXPJUyIUAMQBEEDHDCAFHH.BEBAIEJJDHF.0bDCxrx9w2373.5ysmo.qyyqvo.myw@grandcentral.bounces.google.com designates 10.68.242.74 as permitted sender) client-ip=10.68.242.74
+Authentication-Results: mr.google.com;
+       spf=pass (google.com: domain of 3FXPJUyIUAMQBEEDHDCAFHH.BEBAIEJJDHF.0bDCxrx9w2373.5ysmo.qyyqvo.myw@grandcentral.bounces.google.com designates 10.68.242.74 as permitted sender) smtp.mail=3FXPJUyIUAMQBEEDHDCAFHH.BEBAIEJJDHF.0bDCxrx9w2373.5ysmo.qyyqvo.myw@grandcentral.bounces.google.com;
+       dkim=pass header.i=@google.com
+X-Received: from mr.google.com ([10.68.242.74])
+        by 10.68.242.74 with SMTP id wo10mr4983982pbc.0.1405711125558 (num_hops = 1);
+        Fri, 18 Jul 2014 12:18:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:message-id:date:subject:from:to:content-type;
+        bh=1qHXjpCMz6CHzr+OPP1TDZ8pSl4BA7aWdBCMAj6FjsA=;
+        b=hQqvlxRfA+bk07WKI7cZyjGhFSRMWja9sp6s0IySauNBbTjVZFJTYJ15SzrjW01ysw
+         cRFvw2iSQMhXUqy7/3NEuIWa86WPdw7mz2kkVg6vVdChRDv8q6kYw4+okF2GPNb/QsCA
+         bkaYZ79hLzuHY9EXsCbhwaO30aAvvyjULPuegCXTojnhqMSowi6d1GShNsSvIILmViXV
+         kV2Woxw9DUGEf/WBvb5m3D/vPbal50zHhIZQdLuP/NJqTDBRvfB8RWCuhxj6z48O9tFp
+         g+4uB8vnC25C4Yp2R5Y4WYZwdIPKpWhoAIdJ3Y/m8EmtEqp1ZN/rbWQK1uWnAVCRCJ51
+         79tw==
+MIME-Version: 1.0
+X-Received: by 10.68.242.74 with SMTP id wo10mr3351755pbc.0.1405711125193;
+ Fri, 18 Jul 2014 12:18:45 -0700 (PDT)
+Message-ID: <+12345678888.cdca40ae8131958de6403716efb6403f9111904d@txt.voice.google.com>
+Date: Fri, 18 Jul 2014 19:18:45 +0000
+Subject: SMS from Weston Thayer [(444) 555-8888]
+From: "Weston Thayer (SMS)" <12345678888.14445558888.qR32nhnzms@txt.voice.google.com>
+To: obfuscated@gmail.com
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed; delsp=yes
+
+ooooobebe how are you?
+
+--
+Sent using SMS-to-email. Reply to this email to text the sender back and  
+save on SMS fees.
+https://www.google.com/voice/

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services;
-using GoogleVoiceEmailHandler;
 using System.Collections.Generic;
+using GoogleVoiceEmailHandler;
 
 namespace GoogleVoiceEmailHandlerUnitTests
 {
