@@ -1,0 +1,71 @@
+x-store-info:J++/JTCzmObr++wNraA4Pa4f5Xd6uensydyekesGC2M=
+Authentication-Results: hotmail.com; spf=pass (sender IP is 209.85.219.68; identity alignment result is pass and alignment mode is relaxed) smtp.mailfrom=forwarding-noreply@google.com; dkim=pass (identity alignment result is pass and alignment mode is relaxed) header.d=google.com; x-hmca=pass header.id=forwarding-noreply@google.com
+X-SID-PRA: forwarding-noreply@google.com
+X-AUTH-Result: PASS
+X-SID-Result: PASS
+X-Message-Status: n:n
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTE7YT0xO0Q9MTtHRD0xO1NDTD0w
+X-Message-Info: gamVN+8Ez8V+RHg+F+brAUJd1h2z7JKD3mAeE0aoWUy/WnwiSqTFR2vtCvrAm+P7gFucsAwxvx3asfJwzIFYlVuEv/LwpffDqtjHUv1ce6kZIQ5Vw7/srbg8QDW3q5s4yySNUCZcW4bdHs+vn+C9pzT7Qp+91VALqL1Y+TQUTTARyNoD0y+XoGeAHuwt/QZXSYlrvqeBPxdN9g141E+0zVodrBl5IRfuILh2phof3Jw=
+Received: from mail-oa0-f68.google.com ([209.85.219.68]) by COL004-MC3F33.hotmail.com over TLS secured channel with Microsoft SMTPSVC(7.5.7601.22712);
+	 Sat, 19 Jul 2014 23:06:21 -0700
+Received: by mail-oa0-f68.google.com with SMTP id i7so1748343oag.3
+        for <test@outlook.com>; Sat, 19 Jul 2014 23:06:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:date:message-id:subject:from:to:content-type;
+        bh=0GoA8wKofDiczSpxWjH23Q86VebYN3Y0UTevmFMz4yc=;
+        b=ana7tzSrIkOxmE55P38kNGuW0D6bjXDgB2hTPKIwqLbMgoZA6z8/0PNnsaZ0Tw8+cW
+         earJ8pJavRCoBzab2KDnwdmBs5e+mlsKu0UIFVMhhOEQxrftzMjfebO3LM+8X20NBsRy
+         9/UIuHYRSOASiogCDIhVhA0LizfBcqzG5Cl5yXbc4LAHU5uul0cNNkb3uS9Ryi8HkPCh
+         S3jYaRuVbngZc6khJ82gPrdqzemVHJtSlhUCoSMx4pGb7G8pSa1AAHmxSAnwwX7pMHrz
+         15I3swtsR+1+cod2PiIQPqvDP9Ktzb+AMKbKGS5U1RfTR7sHjmv+4Hdt0cVmzW8fq7tx
+         yrGQ==
+MIME-Version: 1.0
+X-Received: by 10.182.60.225 with SMTP id k1mr23537343obr.48.1405836381551;
+ Sat, 19 Jul 2014 23:06:21 -0700 (PDT)
+X-Google-Address-Confirmation: F3ZbnBSxAstusblh2_7vTmOUrvc
+Date: Sat, 19 Jul 2014 23:06:21 -0700
+Message-ID: <CAHY=hUmRe2Aci8u7cLvo9wJqZFRgOwJ4i62Y1oRQskC8=bbkhA@mail.gmail.com>
+Subject: (#250929777) Gmail Forwarding Confirmation - Receive Mail from cryclopstest@gmail.com
+From: Gmail Team <forwarding-noreply@google.com>
+To: test@outlook.com
+Content-Type: text/plain; charset=UTF-8
+Return-Path: forwarding-noreply@google.com
+X-OriginalArrivalTime: 20 Jul 2014 06:06:21.0783 (UTC) FILETIME=[BABAA670:01CFA3E0]
+
+cryclopstest@gmail.com has requested to automatically forward mail to your email
+address test@outlook.com.
+Confirmation code: 250929777
+
+To allow cryclopstest@gmail.com to automatically forward mail to your address,
+please click the link below to confirm the request:
+
+https://isolated.mail.google.com/mail/vf-fd4666a8da-test%40outlook.com-3hqNMJvuylEsLqdSs5nmufP48Gk
+
+If you click the link and it appears to be broken, please copy and paste it
+into a new browser window. If you aren't able to access the link, you
+can send the confirmation code
+250929777 to cryclopstest@gmail.com.
+
+Thanks for using Gmail!
+
+Sincerely,
+
+The Gmail Team
+
+If you do not approve of this request, no further action is required.
+cryclopstest@gmail.com cannot automatically forward messages to your
+email address
+unless you confirm the request by clicking the link above. If you accidentally
+clicked the link, but you do not want to allow cryclopstest@gmail.com to
+automatically forward messages to your address, click this link to cancel this
+verification:
+https://isolated.mail.google.com/mail/uf-fd4666a8da-test%40outlook.com-3hqNMJvuylEsLqdSs5nmufP48Gk
+
+To learn more about why you might have received this message, please
+visit: http://support.google.com/mail/bin/answer.py?answer=184973.
+
+Please do not respond to this message. If you'd like to contact the
+Google.com Team, please log in to your account and click 'Help' at
+the top of any page. Then, click 'Contact Us' along the bottom of the
+Help Center.

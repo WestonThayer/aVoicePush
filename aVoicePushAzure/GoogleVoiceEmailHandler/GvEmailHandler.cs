@@ -41,7 +41,7 @@ namespace GoogleVoiceEmailHandler
                     // Notify the user of success
                     Message message = new Message()
                     {
-                        Body = "Awesome! aVoice Push has been configured correctly",
+                        Body = "Awesome! Your Gmail is now forwarding to aVoice Push. Go to the next step, you're almost there!",
                         Number = "avoice",
                         Sender = "aVoice Push",
                         ThreadId = null,
@@ -58,7 +58,7 @@ namespace GoogleVoiceEmailHandler
                     // Ugh, we failed
                     Message message = new Message()
                     {
-                        Body = "Uhoh, something broke.",
+                        Body = "aVoice Push hit a snag. Try using the permission code Google sent us: " + GvEmailParser.ParsePermissionForCode(email),
                         Number = "avoice",
                         Sender = "aVoice Push",
                         ThreadId = null,

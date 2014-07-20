@@ -332,5 +332,25 @@ namespace GoogleVoiceEmailHandler
                 return null;
             }
         }
+
+        /// <summary>
+        /// Given an email forwarding permission mail, find the confirmation code that the user may
+        /// enter on their end.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>The code, or null if not found</returns>
+        public static string ParsePermissionForCode(IEmail email)
+        {
+            Regex r = new Regex(@"Confirmation code: (\d+)");
+
+            if (r.IsMatch(email.RawBody))
+            {
+                var m = r.Match(email.RawBody);
+                return m.Groups[1].Value;
+            }
+
+            ServiceLocator.Current.Log.Error("Regex match fail in ParsePermissionForCode. Body: " + PurgePersonalString(email.RawBody));
+            return null;
+        }
     }
 }

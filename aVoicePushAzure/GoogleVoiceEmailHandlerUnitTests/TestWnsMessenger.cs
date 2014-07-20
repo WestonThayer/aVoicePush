@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services;
 using System.Collections.Generic;
 using GoogleVoiceEmailHandler;
+using GoogleVoiceEmailHandlerUnitTests.Helpers;
 
 namespace GoogleVoiceEmailHandlerUnitTests
 {
@@ -67,32 +68,9 @@ namespace GoogleVoiceEmailHandlerUnitTests
                 PushConnectionString = "http://testuri.com"
             };
 
-            try
-            {
-                WnsMessenger.NotifyUser(null, item, "", "test");
-            }
-            catch (ArgumentException ex)
-            {
-                Assert.AreEqual(ex.Message, "message");
-            }
-
-            try
-            {
-                WnsMessenger.NotifyUser(message, item, "", "test");
-            }
-            catch (ArgumentException ex)
-            {
-                Assert.AreEqual(ex.Message, "clientId");
-            }
-
-            try
-            {
-                WnsMessenger.NotifyUser(message, item, "test", "");
-            }
-            catch (ArgumentException ex)
-            {
-                Assert.AreEqual(ex.Message, "clientSecret");
-            }
+            AssertExtensions.Throws(typeof(ArgumentException), "message", () => WnsMessenger.NotifyUser(null, item, "test", "test"));
+            AssertExtensions.Throws(typeof(ArgumentException), "clientId", () => WnsMessenger.NotifyUser(message, item, "", "test"));
+            AssertExtensions.Throws(typeof(ArgumentException), "clientSecret", () => WnsMessenger.NotifyUser(message, item, "test", ""));
         }
 
         public class MockItem : IItem

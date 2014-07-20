@@ -60,9 +60,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\AssertExtensions.cs" />
+    <Compile Include="Helpers\EmailParser.cs" />
+    <Compile Include="Mocks\MockEmail.cs" />
+    <Compile Include="Mocks\MockEmailHeader.cs" />
+    <Compile Include="Mocks\MockLinkClicker.cs" />
+    <Compile Include="Mocks\MockLog.cs" />
     <Compile Include="TestWnsMessenger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestGvEmailParser.cs" />
+    <Compile Include="TestGvEmailHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EmailPusherWorkerRole\EmailPusherWorkerRole.csproj">
@@ -78,10 +85,11 @@
       <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Mocks\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="EmailCollateral\forwardrequest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="EmailCollateral\missedcall_unknown.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
