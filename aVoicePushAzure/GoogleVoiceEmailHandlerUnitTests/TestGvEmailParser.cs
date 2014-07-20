@@ -113,6 +113,65 @@ namespace GoogleVoiceEmailHandlerUnitTests
             Assert.AreEqual(result.UserEmail, @"obfuscated@gmail.com");
         }
 
+        [TestMethod]
+        [DeploymentItem("EmailCollateral\\missedcall_unknown.txt")]
+        public void TestParseMessageMissedCallUnknown()
+        {
+            ServiceLocator.Current.Log = new MockLog();
+
+            IEmail email = ReadEmailFromFilePath("missedcall_unknown.txt");
+            Message result = GvEmailParser.ParseMessage(email);
+
+            Assert.AreEqual(result.Body, @"Missed call from:  (443) 672-2025 at 2:13 PM");
+            Assert.AreEqual(result.Number, @"+14436722025");
+            Assert.AreEqual(result.Sender, @"(443) 672-2025");
+            Assert.AreEqual(result.ThreadId, null);
+            Assert.AreEqual(result.Type, @"Missed call");
+            Assert.AreEqual(result.UserEmail, @"obfuscated@gmail.com");
+        }
+
+        [TestMethod]
+        [DeploymentItem("EmailCollateral\\sms_unknown_new_smallnum.txt")]
+        public void TestParseMessageSmsUnknownNewSmallNum()
+        {
+            ServiceLocator.Current.Log = new MockLog();
+
+            IEmail email = ReadEmailFromFilePath("sms_unknown_new_smallnum.txt");
+            Message result = GvEmailParser.ParseMessage(email);
+
+            Assert.AreEqual(result.Body, @"Amazon.com: Your package with Long Rocker Wig - Mixed Blonde has.");
+            Assert.AreEqual(result.Number, @"262966");
+            Assert.AreEqual(result.Sender, @"262966");
+            Assert.AreEqual(result.ThreadId, @"19b059c4d5af854b6f57fce6ae20222d68133415");
+            Assert.AreEqual(result.Type, @"SMS");
+            Assert.AreEqual(result.UserEmail, @"obfuscated@gmail.com");
+        }
+
+        [TestMethod]
+        public void TestParseMessageError1()
+        {
+            ServiceLocator.Current.Log = new MockLog();
+
+            MockEmailHeader header = new MockEmailHeader(
+                @"""Weston Thayer (SMS)"" <12345678888.14445558888.qR32nhnzms@txt.voice.google.com>",
+                @"obfuscated@gmail.com",
+                null,
+                null,
+                @"SMS from Weston Thayer [(444) 555-8888]"
+                );
+
+            MockEmail email = new MockEmail(header, null, "test");
+
+            Message result = GvEmailParser.ParseMessage(email);
+
+            Assert.AreEqual(result.Body, "test");
+            Assert.AreEqual(result.Number, "+14445558888");
+            Assert.AreEqual(result.Sender, "Weston Thayer");
+            Assert.AreEqual(result.ThreadId, null);
+            Assert.AreEqual(result.Type, "SMS");
+            Assert.AreEqual(result.UserEmail, "obfuscated@gmail.com");
+        }
+
         private IEmail ReadEmailFromFilePath(string path)
         {
             Assert.IsTrue(File.Exists(path));

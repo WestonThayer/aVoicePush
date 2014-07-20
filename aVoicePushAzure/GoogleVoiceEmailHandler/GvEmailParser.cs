@@ -117,6 +117,7 @@ namespace GoogleVoiceEmailHandler
             // 
             // SMS from known contact: "Cryclops Test (SMS)" <14108499375.14108499138.btjW8QZCSl@txt.voice.google.com>
             // SMS from unknown contact: "(410) 849-9138" <14108499375.14108499138.btjW8QZCSl@txt.voice.google.com>
+            // SMS from unknown contact with a short number: 262966 <12345678888.262966.LFQ2vLRWWR@txt.voice.google.com>
             // Missed call/Voicemail: Google Voice <voice-noreply@google.com>
             //
             // In this last case, the vital information is in the body of the message, which can look like this:
@@ -167,6 +168,7 @@ namespace GoogleVoiceEmailHandler
                 type = "SMS";
                 Regex r1 = new Regex(@"""(.+) \(SMS\)"" <.+@txt\.voice\.google\.com>");
                 Regex r2 = new Regex(@"""(.+)"" <.+@txt\.voice\.google\.com>");
+                Regex r3 = new Regex(@"(.+) <.+@txt\.voice\.google\.com>");
 
                 if (r1.IsMatch(sender))
                 {
@@ -180,6 +182,14 @@ namespace GoogleVoiceEmailHandler
                 {
                     var m = r2.Match(sender);
                     number = ParseNumber(sender);
+                    sender = m.Groups[1].Value;
+
+                    return;
+                }
+                else if (r3.IsMatch(sender))
+                {
+                    var m = r3.Match(sender);
+                    number = m.Groups[1].Value;
                     sender = m.Groups[1].Value;
 
                     return;

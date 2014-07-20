@@ -82,6 +82,9 @@
     <Folder Include="Mocks\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EmailCollateral\missedcall_unknown.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="EmailCollateral\sms_known_continued.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
