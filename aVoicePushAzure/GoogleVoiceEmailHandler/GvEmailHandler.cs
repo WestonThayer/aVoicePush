@@ -81,10 +81,7 @@ namespace GoogleVoiceEmailHandler
         /// <param name="message"></param>
         private void SendMessage(Message message)
         {
-            foreach (IItem item in ServiceLocator.Current.Item.Query(message.UserEmail))
-            {
-                WnsMessenger.NotifyUser(message, item, "bad", "bad");
-            }
+            ServiceLocator.Current.PushSender.Send(message.UserEmail, message.Sender, message.Body);
         }
 
         /// <summary>

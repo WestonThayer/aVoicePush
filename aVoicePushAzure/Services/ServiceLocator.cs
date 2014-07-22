@@ -31,8 +31,6 @@ namespace Services
 
         public ILinkClicker LinkClicker { get; set; }
 
-        public IItem Item { get; set; }
-
         public IPushSender PushSender { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace Services
     /// </summary>
     public interface IPushSender
     {
-        bool Send(Uri connection, string rawContent, string clientId, string clientSecret);
+        bool Send(string userEmail, string sender, string body);
     }
 }

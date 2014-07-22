@@ -6,9 +6,8 @@
     </Imports>
     <ConfigurationSettings>
       <Setting name="DomainName" />
-      <Setting name="SqlConnectionString" />
-      <Setting name="ClientId" />
-      <Setting name="ClientSecret" />
+      <Setting name="MobileServices.ApplicationUrl" />
+      <Setting name="MobileServices.ApplicationKey" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="SmtpIn" protocol="tcp" port="25" />

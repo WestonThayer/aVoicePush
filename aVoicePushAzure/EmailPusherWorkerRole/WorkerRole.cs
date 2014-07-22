@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Threading;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.Storage;
-using System.Collections.ObjectModel;
 using Services;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
 
 namespace EmailPusher
 {
@@ -20,9 +15,8 @@ namespace EmailPusher
         // and RoleEnvironmentChanged callbacks below.
         private static string[] exemptConfigurationItems = new[]
         {
-            "SqlConnectionString",
-            "ClientId",
-            "ClientSecret"
+            "MobileServices.ApplicationUrl",
+            "MobileServices.ApplicationKey"
         };
 
         /// <summary>
@@ -43,6 +37,8 @@ namespace EmailPusher
         public override bool OnStart()
         {
             ServiceLocator.Current.Log = new Tr();
+            ServiceLocator.Current.PushSender = new WnsPushSender();
+            ServiceLocator.Current.LinkClicker = new HttpLinkClicker();
 
             ServiceLocator.Current.Log.Information("OnStart() entry. Processor count is: " + Environment.ProcessorCount);
 
