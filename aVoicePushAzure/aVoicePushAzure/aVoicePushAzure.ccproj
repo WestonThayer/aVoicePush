@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EmailPusherWorkerRoleContent" />
+    <Folder Include="Profiles" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EmailPusherWorkerRoleContent\diagnostics.wadcfg">
@@ -52,6 +53,9 @@
       <RoleType>Worker</RoleType>
       <RoleName>EmailPusherWorkerRole</RoleName>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\avoicepushProduction.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

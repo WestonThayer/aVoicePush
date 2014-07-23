@@ -1,36 +1,45 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
-using Microsoft.WindowsAzure.ServiceRuntime;
+﻿using Microsoft.WindowsAzure.ServiceRuntime;
+using Newtonsoft.Json.Linq;
 using Services;
 using System.Collections.Generic;
-using System.Net.Http;
+using System.IO;
+using System.Net;
+using System.Text;
 
 namespace EmailPusher
 {
     public class WnsPushSender : IPushSender
     {
-        private MobileServiceClient mobileService;
-
         public WnsPushSender()
         {
-            mobileService = new MobileServiceClient(
-                RoleEnvironment.GetConfigurationSettingValue("MobileServices.ApplicationUrl"),
-                RoleEnvironment.GetConfigurationSettingValue("MobileServices.ApplicationKey")
-                );
         }
 
         public bool Send(string userEmail, string sender, string body)
         {
-            var args = new Dictionary<string, string>()
+            string appUrl = RoleEnvironment.GetConfigurationSettingValue("MobileServices.ApplicationUrl");
+            string appKey = RoleEnvironment.GetConfigurationSettingValue("MobileServices.ApplicationKey");
+
+            JObject json = new JObject();
+            json.Add("userEmail", userEmail);
+            json.Add("sender", sender);
+            json.Add("body", body);
+
+            var request = (HttpWebRequest)WebRequest.Create(appUrl + "api/sendpush");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers.Add("X-ZUMO-MASTER", appKey);
+            
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                { "userEmail", userEmail },
-                { "sender", sender },
-                { "body", body }
-            };
+                streamWriter.Write(json.ToString());
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
 
-            // Invoke async, no need to wait
-            mobileService.InvokeApiAsync("sendpush", HttpMethod.Post, args);
+            var response = (HttpWebResponse)request.GetResponse();
 
-            return true;
+            return response.StatusCode == HttpStatusCode.OK;
         }
     }
 }
