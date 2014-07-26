@@ -40,7 +40,7 @@ namespace GoogleVoiceEmailHandlerUnitTests
             public bool Send(string userEmail, string sender, string body)
             {
                 Assert.AreEqual("aVoice Push", sender);
-                Assert.AreEqual("aVoice Push hit a snag. Try using the permission code Google sent us: 250929777", body);
+                Assert.AreEqual("Confirmation code: 250929777", body);
 
                 return false;
             }
