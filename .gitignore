@@ -172,3 +172,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Custom
+aVoicePushAzure/aVoicePushAzure/ServiceConfiguration.Cloud.cscfg
+aVoicePushAzure/aVoicePushAzure/ServiceConfiguration.Local.cscfg
