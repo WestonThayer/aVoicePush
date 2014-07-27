@@ -46,6 +46,9 @@
                 <AppBarButton
                     Label="sign out"
                     Click="AppBarSignOutButton_Click" />
+                <AppBarButton
+                    Label="setup push notifications"
+                    Click="AppBarTutorial_Click"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

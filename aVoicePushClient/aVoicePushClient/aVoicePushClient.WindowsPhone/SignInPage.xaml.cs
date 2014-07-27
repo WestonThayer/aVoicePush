@@ -65,6 +65,7 @@ namespace aVoicePushClient
 
             if (navigationParameter != null && navigationParameter == "signout")
             {
+                // Don't let the user go back if they've signed out
                 Frame.BackStack.Clear();
             }
 
@@ -157,7 +158,17 @@ namespace aVoicePushClient
             else
             {
                 // Navigate to the Inbox, or the tutorial if they haven't seen that yet
-                Frame.Navigate(typeof(InboxPage));
+                bool seen = ApplicationData.Current.LocalSettings.Values["HasSeenTutorial"] as bool? ?? false;
+
+                if (seen)
+                {
+                    Frame.Navigate(typeof(InboxPage));
+                }
+                else
+                {
+                    ApplicationData.Current.LocalSettings.Values["HasSeenTutorial"] = true;
+                    Frame.Navigate(typeof(InboxPage), "tutorial");
+                }
             }
         }
 

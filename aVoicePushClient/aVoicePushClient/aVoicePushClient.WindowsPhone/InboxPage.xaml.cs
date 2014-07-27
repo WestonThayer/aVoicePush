@@ -30,9 +30,14 @@ namespace aVoicePushClient
     public sealed partial class InboxPage : Page
     {
         /// <summary>
-        /// "https://www.google.com/voice/m"
+        /// https://www.google.com/voice/m
         /// </summary>
         private static readonly string HOME_URL = "https://www.google.com/voice/m";
+
+        /// <summary>
+        /// http://cryclops.com/apps/avoice/#push
+        /// </summary>
+        private static readonly string TUTORIAL_URL = "http://cryclops.com/apps/avoice/#push";
 
         private NavigationHelper navigationHelper;
 
@@ -69,20 +74,31 @@ namespace aVoicePushClient
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // Pop the loading page and tutorials off. Back quits.
+            // Pop the loading page off. Back quits (or goes back in the browser).
             Frame.BackStack.Clear();
 
-            string url = HOME_URL;
+            string navigationParameter = e.NavigationParameter as string;
 
-            if (e.PageState != null && e.PageState.ContainsKey("Url"))
+            if (navigationParameter != null && navigationParameter == "tutorial")
             {
-                string savedUrl = e.PageState["Url"] as string;
-
-                if (savedUrl != null)
-                    url = savedUrl;
+                // Show the tutorial
+                GvWebView.Navigate(new Uri(TUTORIAL_URL));
             }
+            else
+            {
+                // Just show the inbox
+                string url = HOME_URL;
 
-            GvWebView.Navigate(new Uri(url));
+                if (e.PageState != null && e.PageState.ContainsKey("Url"))
+                {
+                    string savedUrl = e.PageState["Url"] as string;
+
+                    if (savedUrl != null)
+                        url = savedUrl;
+                }
+
+                GvWebView.Navigate(new Uri(url));
+            }
         }
 
         /// <summary>
@@ -182,6 +198,11 @@ namespace aVoicePushClient
             {
                 GvWebView.Navigate(new Uri(HOME_URL));
             }
+        }
+
+        private void AppBarTutorial_Click(object sender, RoutedEventArgs e)
+        {
+            GvWebView.Navigate(new Uri(TUTORIAL_URL));
         }
 
         private void GvWebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)
