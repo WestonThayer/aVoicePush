@@ -113,17 +113,19 @@ namespace aVoicePushClient
         {
             if (args.Visible)
             {
-                ClearTileAndToastNotifications();
+                ClearTileToastAndBadgeNotifications();
             }
         }
 
-        private void ClearTileAndToastNotifications()
+        private void ClearTileToastAndBadgeNotifications()
         {
             TileUpdateManager.CreateTileUpdaterForApplication().Clear();
 
 #if WINDOWS_PHONE_APP
             ToastNotificationManager.History.Clear();
 #endif
+
+            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
         }
 
         #region NavigationHelper registration
@@ -170,7 +172,7 @@ namespace aVoicePushClient
             if (await VerifyCancelMessageAsync())
             {
                 GvWebView.Refresh();
-                ClearTileAndToastNotifications();
+                ClearTileToastAndBadgeNotifications();
             }
         }
 
