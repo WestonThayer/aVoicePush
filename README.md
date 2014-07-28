@@ -6,7 +6,7 @@ as well as providing push notifications in the form of [Tiles, Badges, and Toast
 By using [Google OAuth 2.0](https://developers.google.com/accounts/docs/OAuth2) to authenticate users, aVoice Push is the only 3rd party
 Google Voice app that *doesn't have access to the users's password*.
 
-![screenshot](https://github.com/Cryclops/aVoicePush/tree/master/aVoicePushClient/ART/screenshots/1-feature.png "Wide tile")
+![screenshot](https://raw.githubusercontent.com/Cryclops/aVoicePush/master/aVoicePushClient/ART/screenshots/1-feature.png "Wide tile")
 
 Project Structure
 -----------------
