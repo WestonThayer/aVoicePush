@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
@@ -33,6 +34,11 @@ namespace aVoicePushClient
         /// https://www.google.com/voice/m
         /// </summary>
         private static readonly string HOME_URL = "https://www.google.com/voice/m";
+
+        /// <summary>
+        /// http://cryclops.com/apps/avoice/#donate
+        /// </summary>
+        private static readonly string DONATE_URL = "http://cryclops.com/apps/avoice/#donate";
 
         /// <summary>
         /// http://cryclops.com/apps/avoice/#push
@@ -89,11 +95,12 @@ namespace aVoicePushClient
                 // Just show the inbox
                 string url = HOME_URL;
 
+                // Restore the page the user was looking at, if possible
                 if (e.PageState != null && e.PageState.ContainsKey("Url"))
                 {
                     string savedUrl = e.PageState["Url"] as string;
 
-                    if (savedUrl != null)
+                    if (!string.IsNullOrWhiteSpace(savedUrl))
                         url = savedUrl;
                 }
 
@@ -111,7 +118,16 @@ namespace aVoicePushClient
         /// serializable state.</param>
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            e.PageState["Url"] = GvWebView.Source.ToString();
+            string currentUrl = GvWebView.Source.ToString();
+
+            if (currentUrl == HOME_URL + "/sendsms")
+            {
+                // Don't save the user's state if they're on the page displayed after
+                // sending an SMS. Attempting to restore it will result in a 403 error.
+                currentUrl = null;
+            }
+
+            e.PageState["Url"] = currentUrl;
         }
 
         private bool NavigationHelper_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
@@ -175,7 +191,7 @@ namespace aVoicePushClient
         {
             PageProgress.Visibility = Visibility.Visible;
 
-            await App.DeleteNotificationAsync();
+            await App.TryDeleteNotificationAsync();
 
             MessageDialog dialog = new MessageDialog("If this is really goodbye, don't forget to disable your filters in Gmail.");
             await dialog.ShowAsync();
@@ -203,6 +219,14 @@ namespace aVoicePushClient
         private void AppBarTutorial_Click(object sender, RoutedEventArgs e)
         {
             GvWebView.Navigate(new Uri(TUTORIAL_URL));
+        }
+
+        private void AppBarDonateButton_Click(object sender, RoutedEventArgs e)
+        {
+            // No need to wait
+#pragma warning disable 4014
+            Launcher.LaunchUriAsync(new Uri(DONATE_URL));
+#pragma warning restore 4014
         }
 
         private void GvWebView_NavigationStarting(WebView sender, WebViewNavigationStartingEventArgs args)

@@ -49,6 +49,9 @@
                 <AppBarButton
                     Label="setup push notifications"
                     Click="AppBarTutorial_Click"/>
+                <AppBarButton
+                    Label="donate"
+                    Click="AppBarDonateButton_Click"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

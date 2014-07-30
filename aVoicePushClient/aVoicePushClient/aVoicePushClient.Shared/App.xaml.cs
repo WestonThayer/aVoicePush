@@ -168,19 +168,25 @@ namespace aVoicePushClient
             
         }
 
-        public static async Task DeleteNotificationAsync()
+        /// <summary>
+        /// Attempt to send the calls to deregister the user. Will silently fail if there are
+        /// networking issues.
+        /// </summary>
+        /// <returns></returns>
+        public static async Task TryDeleteNotificationAsync()
         {
             try
             {
                 await MobileService.GetPush().UnregisterNativeAsync();
+
+                // Mobile Services doesn't have an API injection point for unregistering a push (just registering)
+                await MobileService.InvokeApiAsync("unregister", HttpMethod.Get, null);
             }
             catch (MobileServiceInvalidOperationException)
             {
                 // We'll see the errors on the server
             }
 
-            // Mobile Services doesn't have an API injection point for unregistering a push (just registering)
-            await MobileService.InvokeApiAsync("unregister", HttpMethod.Get, null);
             MobileService.Logout();
 
             PasswordVault vault = new PasswordVault();

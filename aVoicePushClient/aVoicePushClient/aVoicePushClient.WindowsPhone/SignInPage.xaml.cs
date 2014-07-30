@@ -104,7 +104,7 @@ namespace aVoicePushClient
 
             if (dialog != null)
             {
-                await App.DeleteNotificationAsync();
+                await App.TryDeleteNotificationAsync();
 
                 dialog.Commands.Add(new UICommand("Retry", (IUICommand) =>
                 {
