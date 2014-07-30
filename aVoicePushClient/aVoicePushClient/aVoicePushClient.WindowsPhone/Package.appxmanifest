@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="63421Cryclops.aVoicePush" Publisher="CN=8D2B5C7F-61B7-47F2-93E3-5D92D31DDB0A" Version="1.1.0.1" />
+  <Identity Name="63421Cryclops.aVoicePush" Publisher="CN=8D2B5C7F-61B7-47F2-93E3-5D92D31DDB0A" Version="1.1.0.2" />
   <mp:PhoneIdentity PhoneProductId="ab6bd206-4d82-4a24-9945-bb3d6796f29b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>aVoice Push</DisplayName>
