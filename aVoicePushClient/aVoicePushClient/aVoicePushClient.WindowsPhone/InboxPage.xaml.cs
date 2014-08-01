@@ -157,7 +157,9 @@ namespace aVoicePushClient
             ToastNotificationManager.History.Clear();
 #endif
 
-            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
+            var badgeUpdater = BadgeUpdateManager.CreateBadgeUpdaterForApplication();
+            badgeUpdater.Clear();
+            badgeUpdater.StopPeriodicUpdate();
         }
 
         #region NavigationHelper registration
